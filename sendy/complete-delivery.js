@@ -63,8 +63,7 @@ http.createServer(function (req, res) {
                   , function (error, response, body) {
                        if (!error) {
                              res.writeHead(200, { 'Content-Type': 'text/html' });
-                             res.end('<span>Response = '+JSON.stringify(body)+'</span>  \r\n'
-                              +'<span>Response = '+JSON.stringify(response)+'</span>  \r\n'
+                             res.end('<span>Body = '+JSON.stringify(body)+'</span>  \r\n'
                               +JSON.stringify(form.data));
                        }else{
                             res.writeHead(200, { 'Content-Type': 'text/html' });

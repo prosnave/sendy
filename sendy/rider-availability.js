@@ -38,7 +38,7 @@ http.createServer(function (req, res) {
             // console.log(form.data, "+++++++=============", JSON.stringify(form.data));
             request({ 
                       method: 'POST'
-                    , uri: 'https://developer.sendyit.com/v1/api/#rider'
+                    , uri: 'https://test.sendyit.com/v1/api/#rider'
                     , json: true
                     , headers: {
                         "content-type": "application/json",
@@ -48,8 +48,7 @@ http.createServer(function (req, res) {
                   , function (error, response, body) {
                        if (!error) {
                              res.writeHead(200, { 'Content-Type': 'text/html' });
-                             res.end('<span>Response = '+JSON.stringify(body)+'</span>  \r\n'
-                              +'<span>Response = '+JSON.stringify(response)+'</span>  \r\n'
+                             res.end('<span>Body = '+JSON.stringify(body)+'</span>  \r\n'
                               +JSON.stringify(form.data));
                        }else{
                             res.writeHead(200, { 'Content-Type': 'text/html' });
