@@ -66,7 +66,6 @@ http.createServer(function (req, res) {
 
     req_form.handle(req, {
         success: function (form) {
-            // console.log(form.data, "+++++++=============", JSON.stringify(form.data));
             request({ 
                       method: 'POST'
                     , uri: 'https://test.sendyit.com/v1/api/#request'
