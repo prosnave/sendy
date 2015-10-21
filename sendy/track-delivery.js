@@ -35,7 +35,7 @@ http.createServer(function (req, res) {
         success: function (form) {
             request({ 
                       method: 'POST'
-                    , uri: 'https://test.sendyit.com/v1/api/#track'
+                    , uri: 'https://developer.sendyit.com/v1/api/#track'
                     , json: true
                     , headers: {
                         "content-type": "application/json",
@@ -45,11 +45,10 @@ http.createServer(function (req, res) {
                   , function (error, response, body) {
                        if (!error) {
                              res.writeHead(200, { 'Content-Type': 'text/html' });
-                             res.end('<span>Body = '+JSON.stringify(body)+'</span>  \r\n'
-                              +JSON.stringify(form.data));
+                             res.end('<span>Body = '+JSON.stringify(body)+'</span>  \n\n');
                        }else{
-                            res.writeHead(200, { 'Content-Type': 'text/html' });
-                            res.write('<h1> Error = '+JSON.stringify(error)+'</h1> \r\n'+JSON.stringify(form.data));
+                            res.writeHead(500, { 'Content-Type': 'text/html' });
+                            res.write('<h1> Error = '+JSON.stringify(error)+'</h1> \n\n'+JSON.stringify(form.data));
                             res.end(
                                 template.expand({
                                   form: form.toHTML(),
