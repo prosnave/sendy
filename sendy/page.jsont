@@ -7,6 +7,7 @@
                 width: 375px;
             }
             label {
+                display: inline-block;
                 position: relative;
                 width: 200px;
                 top: 6px;
@@ -28,7 +29,7 @@
             }
             .field input[type="checkbox"] {
                 position: relative;
-                margin-left: 32px;
+                margin-left: 94px;
                 top: 4px;
             }
             .field fieldset input {
@@ -47,10 +48,11 @@
                 margin-top: 20px;
             }
         </style>
+        <!-- <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css"> -->
     </head>
     <body>
         <h1>Sendy - API Form</h1>
-        <form action="" method="{method}" enctype="{enctype}">
+        <form action="" method="{method}" enctype="{enctype}" class="pure-form pure-form-stacked">
             {form}
             <button type="submit">Submit</button>
         </form>
