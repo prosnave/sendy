@@ -18,42 +18,42 @@ var template = jsontemplate.Template(
 
 // DELIVERY REQUEST FORM
 var req_form = forms.create({
-    command: fields.string({ required: true, label: 'Command' }),
+    command: fields.string({ required: true, errorAfterField: true, label: 'Command' }),
     data: {
-        api_key: fields.string({ required: true, label: 'API Key' }),
-        api_username: fields.string({ required: true, label: 'API Username' }),
+        api_key: fields.string({ required: true, errorAfterField: true, label: 'API Key' }),
+        api_username: fields.string({ required: true, errorAfterField: true, label: 'API Username' }),
         from: {
-            from_name: fields.string({ required: true, label: 'From - Location' }),
-            from_lat: fields.number({ required: true, label: 'Latitude',validators: [validators.latlong()] }),
-            from_long: fields.number({ required: true, label: 'Longitude',validators: [validators.latlong()] }),
+            from_name: fields.string({ required: true, errorAfterField: true, label: 'From - Location' }),
+            from_lat: fields.number({ required: true, errorAfterField: true, label: 'Latitude',validators: [validators.latlong()] }),
+            from_long: fields.number({ required: true, errorAfterField: true, label: 'Longitude',validators: [validators.latlong()] }),
             from_description: fields.string({ required: false, label: 'Description' })
         },
         to: {
-            to_name: fields.string({ required: true, label: 'To - Location' }),
-            to_lat: fields.number({ required: true, label: 'Latitude', validators: [validators.latlong()] }),
-            to_long: fields.number({ required: true, label: 'Longitude',validators: [validators.latlong()] }),
+            to_name: fields.string({ required: true, errorAfterField: true, label: 'To - Location' }),
+            to_lat: fields.number({ required: true, errorAfterField: true, label: 'Latitude', validators: [validators.latlong()] }),
+            to_long: fields.number({ required: true, errorAfterField: true, label: 'Longitude',validators: [validators.latlong()] }),
             to_description: fields.string({ required: false, label: 'Description' })
         },
         recepient: {
-            recepient_name: fields.string({ required: true, label: 'Name' }),
-            recepient_phone: fields.tel({ required: true, label: 'Phone',validators: [validators.number()] }),
-            recepient_email: fields.email({ required: true, label: 'Email Address' })
+            recepient_name: fields.string({ required: true, errorAfterField: true, label: 'Name' }),
+            recepient_phone: fields.tel({ required: true, errorAfterField: true, label: 'Phone',validators: [validators.number()] }),
+            recepient_email: fields.email({ required: true, errorAfterField: true, label: 'Email Address' })
         },
         delivery_details: {
             pick_up_date: fields.date({ 
-                required: true,
+                required: true, errorAfterField: true,
                 widget: widgets.date(),
                 label: 'Pick up date'
             }),
             collect_payment: {
                 status: fields['boolean']({label: 'Collect Payment Status'}),
-                pay_method: fields.number({ required: true, label: 'Pay Method',validators: [validators.number()] }),
-                amount: fields.number({ required: true, label: 'Amount' })
+                pay_method: fields.number({ required: true, errorAfterField: true, label: 'Pay Method',validators: [validators.number()] }),
+                amount: fields.number({ required: true, errorAfterField: true, label: 'Amount' })
             },
             return: fields['boolean']({label: 'Return?'}),
             note: fields.string({ required: false, label: 'Note' }),
-            note_status: fields['boolean']({label: 'Note Satus?'}),
-            request_type: fields.string({ required: true, label: 'Request Type' })
+            note_status: fields['boolean']({label: 'Note Status?'}),
+            request_type: fields.string({ required: true, errorAfterField: true, label: 'Request Type' })
         }
         
     }
@@ -64,21 +64,21 @@ var req_form = forms.create({
 
 //COMPLETE DELIVERY FORM
 var complete_form = forms.create({
-    command: fields.string({ required: true, label: 'Command' }),
+    command: fields.string({ required: true, errorAfterField: true, label: 'Command' }),
     data: {
-        api_key: fields.string({ required: true, label: 'API Key' }),
-        api_username: fields.string({ required: true, label: 'API Username' }),
-        order_no: fields.string({ required: true, label: 'Order Number',validators: [validators.alphanumeric()] }),
+        api_key: fields.string({ required: true, errorAfterField: true, label: 'API Key' }),
+        api_username: fields.string({ required: true, errorAfterField: true, label: 'API Username' }),
+        order_no: fields.string({ required: true, errorAfterField: true, label: 'Order Number',validators: [validators.alphanumeric()] }),
         delivery_details: {
             pick_up_date: fields.date({ 
-                required: true,
+                required: true, errorAfterField: true,
                 widget: widgets.date(),
                 label: 'Pick up date'
             }),
             collect_payment: {
                 status: fields['boolean']({label: 'Collect Payment Status'}),
-                pay_method: fields.number({ required: true, label: 'Pay Method',validators: [validators.number()] }),
-                amount: fields.number({ required: true, label: 'Amount' })
+                pay_method: fields.number({ required: true, errorAfterField: true, label: 'Pay Method',validators: [validators.number()] }),
+                amount: fields.number({ required: true, errorAfterField: true, label: 'Amount' })
             },
             return: fields['boolean']({label: 'Return?'}),
             note: fields.string({ required: false, label: 'Note' }),
@@ -93,11 +93,11 @@ var complete_form = forms.create({
 
 //TRACK DELIVERY FORM
 var track_form = forms.create({
-    command: fields.string({ required: true, label: 'Command' }),
+    command: fields.string({ required: true, errorAfterField: true, label: 'Command' }),
     data: {
-        api_key: fields.string({ required: true, label: 'API Key' }),
-        api_username: fields.string({ required: true, label: 'API Username' }),
-        order_no: fields.string({ required: true, label: 'Order Number',validators: [validators.alphanumeric()] })
+        api_key: fields.string({ required: true, errorAfterField: true, label: 'API Key' }),
+        api_username: fields.string({ required: true, errorAfterField: true, label: 'API Username' }),
+        order_no: fields.string({ required: true, errorAfterField: true, label: 'Order Number',validators: [validators.alphanumeric()] })
     }
 
 },{validatePastFirstError: true});
@@ -106,11 +106,11 @@ var track_form = forms.create({
 
 //CANCEL DELIVERY FORM
 var cancel_form = forms.create({
-    command: fields.string({ required: true, label: 'Command' }),
+    command: fields.string({ required: true, errorAfterField: true, label: 'Command' }),
     data: {
-        api_key: fields.string({ required: true, label: 'API Key' }),
-        api_username: fields.string({ required: true, label: 'API Username' }),
-        order_no: fields.string({ required: true, label: 'Order Number',validators: [validators.alphanumeric()] })
+        api_key: fields.string({ required: true, errorAfterField: true, label: 'API Key' }),
+        api_username: fields.string({ required: true, errorAfterField: true, label: 'API Username' }),
+        order_no: fields.string({ required: true, errorAfterField: true, label: 'Order Number',validators: [validators.alphanumeric()] })
     }
 
 },{validatePastFirstError: true});
@@ -119,12 +119,12 @@ var cancel_form = forms.create({
 
 //RIDER AVAILABILITY FORM
 var rider_form = forms.create({
-    command: fields.string({ required: true, label: 'Command' }),
+    command: fields.string({ required: true, errorAfterField: true, label: 'Command' }),
     data: {
-        api_key: fields.string({ required: true, label: 'API Key' }),
-        api_username: fields.string({ required: true, label: 'API Username' }),
-        lat: fields.number({ required: true, label: 'Latitude', validators: [validators.latlong()] }),
-        long: fields.number({ required: true, label: 'Longitude',validators: [validators.latlong()] })
+        api_key: fields.string({ required: true, errorAfterField: true, label: 'API Key' }),
+        api_username: fields.string({ required: true, errorAfterField: true, label: 'API Username' }),
+        lat: fields.number({ required: true, errorAfterField: true, label: 'Latitude', validators: [validators.latlong()] }),
+        long: fields.number({ required: true, errorAfterField: true, label: 'Longitude',validators: [validators.latlong()] })
     }
 
 },{validatePastFirstError: true});
